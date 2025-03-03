@@ -1,5 +1,6 @@
 import { walk } from "@std/fs";
-import mime from "npm:mime";
+// import mime from "npm:mime";
+import { mime } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts"
 
 const messages: string[] = [];
 
@@ -32,7 +33,7 @@ async function getTheFile(filePath: string): Promise<string> {
     return "/404.html";
 }
 
-// API requests are to cappabot.com/api/*
+// API requests are to /api
 async function apiRequest(req: Request): Promise<Response> {
     const reqMethod = req.method;
     const reqURL = new URL(req.url);
@@ -45,11 +46,11 @@ async function apiRequest(req: Request): Promise<Response> {
             // Remove status from the URL
             reqPath = reqPath.replace("/status", "");
 
-            // There could be a whole bunch of statuses for each service on cappabot.com
+            // There could be a whole bunch of statuses for each service
 
-            // If there is no status path, say cappabot.com is up
+            // If there is no status path, say the service is up
             return new Response(
-                "gup (This means that cappabot.com is up)",
+                "gup (This means that the service is up)",
             );
         } else return new Response('Only "GET" to /api/status pls');
     }
@@ -77,7 +78,7 @@ async function apiRequest(req: Request): Promise<Response> {
     });
 }
 
-// Handle requests to the website part of cappabot.com
+// Handle requests to the website part of CappaShare
 async function websiteRequest(req: Request): Promise<Response> {
     const reqURL = new URL(req.url);
     const reqPath = reqURL.pathname;
@@ -101,7 +102,7 @@ async function websiteRequest(req: Request): Promise<Response> {
     return new Response(file.readable, { status: resStatus, headers: headers });
 }
 
-// Handle all requests to cappabot.com
+// Handle all requests to CappaShare
 async function handler(req: Request) {
     const reqMethod = req.method;
     const reqURL = new URL(req.url);
