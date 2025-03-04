@@ -4,20 +4,22 @@ import { mime } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts"
 
 const messages: string[] = [];
 
-// This function returns the filepath of a file in the website directory
+const websitePath = "source";
+
+// This function returns the filepath of a file in the websitePath directory
 // It allows html pages to be found without the need to add .html in the URL
 async function getTheFile(filePath: string): Promise<string> {
     // The / path returns index.html
     if (filePath == "/") return "/index.html";
 
-    // Get all of the files in the website directory
+    // Get all of the files in the websitePath directory
     const filePaths = [];
-    for await (const walkEntry of walk("./website")) {
+    for await (const walkEntry of walk(`./${websitePath}`)) {
         // Only add files to the filePaths array
         if (walkEntry.isFile) {
             filePaths.push(
-                // Remove "website" from the path
-                walkEntry.path.replaceAll("\\", "/").replace("website", ""),
+                // Remove websitePath from the path
+                walkEntry.path.replaceAll("\\", "/").replace(websitePath, ""),
             );
         }
     }
@@ -91,7 +93,7 @@ async function websiteRequest(req: Request): Promise<Response> {
     const resStatus = resFileName == "404.html" ? 404 : 200;
 
     // Open the file with deno
-    const file = await Deno.open("./website" + resFileName);
+    const file = await Deno.open(`./${websitePath}` + resFileName);
     // Get the mime type from the file name
     const contentType = mime.getType(resFileName);
     // If a mime type was found, set the content-type header to that, otherwise the type is text/plain
