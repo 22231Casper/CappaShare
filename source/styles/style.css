@@ -4,7 +4,41 @@
     --secondary: #020202;
 }
 
+* {
+    margin: 0;
+    text-align: center;
+}
+
 body {
     background-color: var(--background);
     color: var(--primary);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body * {
+    /*background-color: #555555;*/
+}
+
+nav {
+    display: flex;
+}
+
+nav > * {
+    display: flex;
+    flex: auto;
+    height: 10%;
+}
+
+nav:first-child {
+    justify-content: flex-start;
+}
+
+nav:last-child {
+    justify-content: flex-end;
+}
+
+nav img {
+
 }

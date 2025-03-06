@@ -57,23 +57,6 @@ async function apiRequest(req: Request): Promise<Response> {
         } else return new Response('Only "GET" to /api/status pls');
     }
 
-    else if (reqPath.startsWith("/chat")) {
-        if (reqMethod == "POST") {
-            const data = await req.text();
-            console.log(data);
-
-            if (messages.unshift(data) > 10) messages.splice(10 - messages.length);
-
-            return new Response("burger");
-        }
-
-        else if (reqMethod == "GET") {
-            return new Response(JSON.stringify(messages));
-        }
-
-        return new Response("yeah nah");
-    }
-
     // Pretty much a 404 for api requests
     return new Response(`API request to ${reqPath} could not be resolved`, {
         status: 404,
