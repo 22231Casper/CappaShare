@@ -5,7 +5,6 @@
 }
 
 * {
-    margin: 0;
     text-align: center;
 }
 
@@ -13,32 +12,137 @@ body {
     background-color: var(--background);
     color: var(--primary);
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
 }
 
 body * {
     /*background-color: #555555;*/
-}
-
-nav {
-    display: flex;
-}
-
-nav > * {
-    display: flex;
-    flex: auto;
-    height: 10%;
-}
-
-nav:first-child {
-    justify-content: flex-start;
-}
-
-nav:last-child {
-    justify-content: flex-end;
+    margin: auto;
 }
 
 nav img {
+    max-height: 10%;
+}
 
+img {
+    width: 50%;
+}
+
+#pluh {
+    width: 20%;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid var(--grey);
+}
+
+/* Flex */
+.flex {
+    display: flex;
+}
+
+.flex.reverse {
+    flex-direction: row-reverse;
+}
+
+.flex.vertical {
+    flex-direction: column;
+}
+
+.flex.vertical.reverse {
+    flex-direction: column-reverse;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    flex: auto;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    flex: auto;
+}
+
+/* Anchor tag */
+a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: color 100ms, font-size 200ms, background-color 500ms;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Nav section */
+nav {
+    overflow: hidden;
+    background-color: var(--light);
+    padding: 20px 0px;
+    height: auto;
+    display: flex;
+    z-index: 1;
+    top: 0px;
+    width: 100%;
+}
+
+nav > div {
+    display: flex;
+    flex: auto;
+    padding: 0px 5%;
+}
+
+nav a:not(:has(img)) {
+    color: var(--black);
+    padding: 15px;
+    justify-self: center;
+}
+
+nav img {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+}
+
+nav > div > * {
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Footer */
+footer {
+    margin: auto 0px 0px 0px;
+    padding: 50px;
+    background-color: var(--light);
+    display: flex;
+    justify-content: space-around;
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer h1 {
+    margin: auto;
+}
+
+footer > div > div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 0;
+    justify-content: space-around;
+    margin: 0px 10px;
+}
+
+/* Box with a border */
+.box {
+    border-radius: 20px;
+    border: 5px solid var(--grey);
 }
