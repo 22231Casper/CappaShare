@@ -1,36 +1,78 @@
+/* Variables */
 :root {
+    /* Colors */
     --background: #020202;
     --primary: #ffffff;
     --secondary: #020202;
+
+    /* idk */
+    --nav-height: calc(10vh / 2vw);
 }
 
+/* Everything on the page */
 * {
     text-align: center;
+    margin: 0;
 }
 
+/* Body element */
 body {
     background-color: var(--background);
     color: var(--primary);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url("/images/space-skull.jpg");
+    background-size: 100%;
+    margin-top: 15vh;
 }
 
+/* All elements inside the body */
 body * {
-    /*background-color: #555555;*/
     margin: auto;
+}
+
+/* Nav bar */
+nav {
+    background-color: var(--background);
+
+    width: 90vw;
+    padding: 2vh 5vw;
+    top: 0;
+
+    display: flex;
+    position: fixed;
+
+    /*z-index: 1;*/
+}
+
+nav > div {
+    display: flex;
+    flex: auto;
+    /*padding: 0px 5%;*/
+}
+
+nav a:not(:has(img)) {
+    color: var(--black);
+    padding: 15px;
+    justify-self: center;
 }
 
 nav img {
     max-height: 10%;
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+}
+
+nav > div > * {
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 img {
     width: 50%;
-}
-
-#pluh {
-    width: 20%;
 }
 
 hr {
@@ -76,42 +118,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-/* Nav section */
-nav {
-    overflow: hidden;
-    background-color: var(--light);
-    padding: 20px 0px;
-    height: auto;
-    display: flex;
-    z-index: 1;
-    top: 0px;
-    width: 100%;
-}
-
-nav > div {
-    display: flex;
-    flex: auto;
-    padding: 0px 5%;
-}
-
-nav a:not(:has(img)) {
-    color: var(--black);
-    padding: 15px;
-    justify-self: center;
-}
-
-nav img {
-    width: 64px;
-    height: 64px;
-    display: inline-block;
-}
-
-nav > div > * {
-    margin: 0;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 /* Footer */
