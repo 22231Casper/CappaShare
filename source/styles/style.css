@@ -11,20 +11,24 @@
 
 /* Everything on the page */
 * {
+    color: var(--primary);
+    font-family: "Inter", sans-serif;
     text-align: center;
     margin: 0;
+}
+
+/* HTML element */
+html {
+    min-height: 100vh;
 }
 
 /* Body element */
 body {
     background-color: var(--background);
-    color: var(--primary);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("/images/space-skull.jpg");
     background-size: 100%;
-    margin-top: 15vh;
 }
 
 /* All elements inside the body */
@@ -35,15 +39,11 @@ body * {
 /* Nav bar */
 nav {
     background-color: var(--background);
-
     width: 90vw;
     padding: 2vh 5vw;
     top: 0;
-
     display: flex;
     position: fixed;
-
-    /*z-index: 1;*/
 }
 
 nav > div {
@@ -69,6 +69,20 @@ nav > div > * {
     margin: 0;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+/* Hero */
+#hero {
+    background-image: url("/images/spacebgbecausenoahsdumbahhahhthinksitsunproffesional.jpg");
+    display: flex;
+    flex-direction: column;
+    padding: 20vh 0;
+    width: 100%;
+}
+
+#hero > * {
+    margin: 0;
+    font-size: 5vw;
 }
 
 img {
@@ -122,33 +136,14 @@ a:hover {
 
 /* Footer */
 footer {
+    background-color: var(--background);
     margin: auto 0px 0px 0px;
     padding: 50px;
-    background-color: var(--light);
     display: flex;
     justify-content: space-around;
 }
 
-footer > div {
+footer > * {
     display: flex;
     justify-content: space-around;
-}
-
-footer h1 {
-    margin: auto;
-}
-
-footer > div > div {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-basis: 0;
-    justify-content: space-around;
-    margin: 0px 10px;
-}
-
-/* Box with a border */
-.box {
-    border-radius: 20px;
-    border: 5px solid var(--grey);
 }
