@@ -2,7 +2,6 @@ import { walk } from "@std/fs";
 // import mime from "npm:mime";
 import { mime } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts"
 
-const messages: string[] = [];
 
 const websitePath = "source";
 
